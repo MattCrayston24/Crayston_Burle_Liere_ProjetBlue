@@ -7,3 +7,5 @@ const routes = require('./routes/routes.js');
 app.use('/', routes);
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
+
+app.use(express.static(path.join(__dirname, '../frontend')));
