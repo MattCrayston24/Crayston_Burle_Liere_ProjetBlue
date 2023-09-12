@@ -55,8 +55,8 @@ main {
 }
 
 button {
-    --b: 3px;   /* border thickness */
-    --s: .15em; /* size of the corner */
+    --b: 3px;
+    --s: .15em; 
     --c: #ffffff;
     
     padding: calc(5vh + var(--s)) calc(10vh + var(--s));
