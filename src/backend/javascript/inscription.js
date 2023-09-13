@@ -41,8 +41,27 @@ function createPlayer() {
             }
         });
 
-        document.getElementById('message').textContent = `Joueur créé : ${player.name}`;
-        document.getElementById('message').style.color = 'green';
+        // Envoyer les données du joueur au serveur
+        fetch('http://localhost:3000/storeData', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(player)
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP ! statut : ${response.status}`);
+            }
+            return response.text();
+        }).then(data => {
+            document.getElementById('message').textContent = data;
+            document.getElementById('message').style.color = 'green';
+        }).catch(error => {
+            console.error(error);
+            document.getElementById('message').textContent = 'Une erreur s\'est produite lors de l\'envoi des données au serveur';
+            document.getElementById('message').style.color = 'red';
+        });
+
         document.getElementById('alignment-value').textContent = `Alignement : ${player.baseAlignment}`;
         document.getElementById('selected-object').textContent = `Objet choisi : ${selectedObject}`;
     } else {
