@@ -1,56 +1,15 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
-
-.game {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.backk {
-    background-image: url(../img/fond.jpg);
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    filter: blur(3px);
-    position: relative;
-}
-
-#jouer-button {
-    background-color: #565656;
-    color: #fff;
-    font-size: 24px;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    position: relative; /* Assurez-vous que le bouton est dans le contexte de .backk */
-    z-index: 1; /* Afficher le bouton au-dessus de l'image de fond */
-}
-
-#jouer-button:hover {
-    background-color: #565656;
-}
-
-.navbar {
-    background-color: #565656;
+nav {
+    background-color: #000000;
     padding: 10px 0;
-    position: fixed;
+    height: 5vh;
     width: 100%;
-    z-index: 2; /* Afficher la barre de navigation au-dessus de tout */
+    z-index: 2;
 }
 
 .navbar-list {
@@ -69,6 +28,65 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
     transition: color 0.3s;
+}
+
+main {
+    
+}
+
+.img-container {
+    position: relative;
+    background-color: #000;
+}
+
+.img-container img {
+    width: 100%;  
+    height:90vh;
+    filter: blur(3px);
+}
+
+.button-container {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    --b: 3px;
+    --s: .15em; 
+    --c: #ffffff;
+    
+    padding: calc(5vh + var(--s)) calc(10vh + var(--s));
+    color: var(--c);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+        var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .2em;
+    font-size: 35px;
+    border: none;
+    background-color: black;
+}
+button:hover,
+button:focus-visible{
+  --_p: 0px;
+  outline-color: var(--c);
+  outline-offset: .05em;
+}
+button:active {
+  background: var(--c);
+  color: #fff;
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    height: 4.62vh;
+    font-size: 25px;
 }
