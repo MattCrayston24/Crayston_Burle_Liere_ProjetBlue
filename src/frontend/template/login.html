@@ -4,72 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création de Joueur</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <h1>Création de Joueur</h1>
-    
-    <!-- Formulaire 1 -->
-    <form id="registration-form-1">
-        <label for="username-1">Nom d'utilisateur :</label>
-        <input type="text" id="username-1" required pattern="[A-Za-z]{3,16}" title="Le nom doit contenir uniquement des lettres, commencer par une majuscule, et avoir entre 3 et 16 caractères."><br>
+    <main>
+        <div class="img-container">
+            <img src="../img/fond.jpg" alt="">
+            <div class="form-container">
+                <!-- Formulaire 1 -->
+                <form id="registration-form-1">
+                    <label for="username-1">Nom d'utilisateur :</label>
+                    <input type="text" id="username-1" required pattern="[A-Za-z]{3,16}" title="Le nom doit contenir uniquement des lettres, commencer par une majuscule, et avoir entre 3 et 16 caractères."><br>
 
-        <label for="alignment1-1">Question 1 : Êtes-vous en faveur de l'aide aux plus démunis ?</label><br>
-        <input type="radio" id="alignment1-1" name="alignment1" value="Bon">
-        <label for="alignment1-1">Oui</label><br>
-        
-        <input type="radio" id="alignment2-1" name="alignment1" value="Neutre">
-        <label for="alignment2-1">Neutre</label><br>
-        
-        <input type="radio" id="alignment3-1" name="alignment1" value="Mauvais">
-        <label for="alignment3-1">Non</label><br>
-    </form>
+                    <label for="alignment1-1">Question 1 : Êtes-vous en faveur de l'aide aux plus démunis ?</label><br>
+                    <input type="radio" id="alignment1-1" name="alignment1" value="Bon">
+                    <label for="alignment1-1">Oui</label><br>
 
-    <!-- Formulaire 2 -->
-    <form id="registration-form-2">
-        <label for="alignment4-2">Question 2 : Seriez-vous prêt à sacrifier des vies innocentes pour atteindre vos objectifs ?</label><br>
-        <input type="radio" id="alignment4-2" name="alignment2" value="Bon">
-        <label for="alignment4-2">Non</label><br>
-        
-        <input type="radio" id="alignment5-2" name="alignment2" value="Neutre">
-        <label for="alignment5-2">Indécis</label><br>
-        
-        <input type="radio" id="alignment6-2" name="alignment2" value="Mauvais">
-        <label for="alignment6-2">Oui</label><br>
-    </form>
+                    <input type="radio" id="alignment2-1" name="alignment1" value="Neutre">
+                    <label for="alignment2-1">Neutre</label><br>
 
-    <!-- Formulaire 3 -->
-    <form id="registration-form-3">
-        <label for="alignment7-3">Question 3 : Êtes-vous en faveur de l'ordre et de la discipline ?</label><br>
-        <input type="radio" id="alignment7-3" name="alignment3" value="Bon">
-        <label for="alignment7-3">Oui</label><br>
-        
-        <input type="radio" id="alignment8-3" name="alignment3" value="Neutre">
-        <label for="alignment8-3">Indécis</label><br>
-        
-        <input type="radio" id="alignment9-3" name="alignment3" value="Mauvais">
-        <label for="alignment9-3">Non</label><br>
-    </form>
+                    <input type="radio" id="alignment3-1" name="alignment1" value="Mauvais">
+                    <label for="alignment3-1">Non</label><br>
+                </form>
 
-    <!-- Formulaire pour choisir un objet -->
-    <form id="object-form">
-        <label for="object">Choisissez un objet :</label><br>
-        <input type="radio" id="object1" name="object" value="Objet 1">
-        <label for="object1">Objet 1</label><br>
+                <!-- Formulaire 2 -->
+                <form id="registration-form-2">
+                    <label for="alignment4-2">Question 2 : Seriez-vous prêt à sacrifier des vies innocentes pour atteindre vos objectifs ?</label><br>
+                    <input type="radio" id="alignment4-2" name="alignment2" value="Bon">
+                    <label for="alignment4-2">Non</label><br>
 
-        <input type="radio" id="object2" name="object" value="Objet 2">
-        <label for="object2">Objet 2</label><br>
+                    <input type="radio" id="alignment5-2" name="alignment2" value="Neutre">
+                    <label for="alignment5-2">Indécis</label><br>
 
-        <input type="radio" id="object3" name="object" value="Objet 3">
-        <label for="object3">Objet 3</label><br>
-    </form>
-    
-    <!-- Bouton de création du joueur -->
-    <button type="button" onclick="createPlayer()">Créer Joueur</button>
+                    <input type="radio" id="alignment6-2" name="alignment2" value="Mauvais">
+                    <label for="alignment6-2">Oui</label><br>
+                </form>
 
-    <!-- Messages -->
-    <p id="message"></p>
-    <p id="alignment-value">Alignement : 20</p>
-    <p id="selected-object"></p>
+                <!-- Formulaire 3 -->
+                <form id="registration-form-3">
+                    <label for="alignment7-3">Question 3 : Êtes-vous en faveur de l'ordre et de la discipline ?</label><br>
+                    <input type="radio" id="alignment7-3" name="alignment3" value="Bon">
+                    <label for="alignment7-3">Oui</label><br>
+
+                    <input type="radio" id="alignment8-3" name="alignment3" value="Neutre">
+                    <label for="alignment8-3">Indécis</label><br>
+
+                    <input type="radio" id="alignment9-3" name="alignment3" value="Mauvais">
+                    <label for="alignment9-3">Non</label><br>
+                </form>
+
+                <!-- Formulaire pour choisir un objet -->
+                <form id="object-form">
+                    <label for="object">Choisissez un objet :</label><br>
+                    <input type="radio" id="object1" name="object" value="Objet 1">
+                    <label for="object1">Objet 1</label><br>
+
+                    <input type="radio" id="object2" name="object" value="Objet 2">
+                    <label for="object2">Objet 2</label><br>
+
+                    <input type="radio" id="object3" name="object" value="Objet 3">
+                    <label for="object3">Objet 3</label><br>
+                </form>
+
+                <!-- Bouton de création du joueur -->
+                <button type="button" onclick="createPlayer()">Créer Joueur</button>
+
+                <!-- Messages -->
+                <p id="message"></p>
+                <p id="alignment-value">Alignement : 20</p>
+                <p id="selected-object"></p>
+            </div>
+        </div>
+    </main>
 
     <script src="http://localhost:3000/static/inscription.js"></script>
 </body>

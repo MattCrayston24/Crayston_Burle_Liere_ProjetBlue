@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+}
+
+.img-container {
+    position: relative;
+    background-color: #000;
+}
+
+.img-container img {
+    width: 100%;
+    height: 99.6vh;
+    filter: blur(3px);
+}
+
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}
+
+/* Style pour les étiquettes des questions */
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Style pour les boutons radio et les labels associés */
+form input[type="radio"] {
+    margin-right: 2px;
+}
+
+/* Style pour le bouton de création du joueur */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour les messages et les informations */
+p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
