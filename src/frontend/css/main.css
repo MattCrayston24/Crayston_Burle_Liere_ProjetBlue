@@ -5,7 +5,7 @@
 }
 
 nav {
-    background-color: #000000;
+    background-color: rgba(203, 168, 77, 0.9);
     padding: 10px 0;
     height: 5vh;
     width: 100%;
@@ -25,16 +25,17 @@ nav {
 }
 
 .navbar-item a {
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     transition: color 0.3s;
 }
 
 .img-container {
     position: relative;
-    background-color: #000;
+    background-color: rgba(203, 168, 77, 0.9);
 }
 
 .img-container img {
@@ -66,7 +67,7 @@ button {
     outline-offset: .2em;
     font-size: 35px;
     border: none;
-    background-color: black;
+    background-color: rgba(203, 168, 77, 0.9);
 }
 button:hover,
 button:focus-visible{
@@ -80,7 +81,7 @@ button:active {
 }
 
 footer {
-    background-color: #000000;
+    background-color: rgba(203, 168, 77, 0.9);
     color: #fff;
     text-align: center;
     height: 4.62vh;

@@ -5,6 +5,7 @@ class Player {
     }
 }
 
+// Fonction pour créer un joueur
 function createPlayer() {
     const enteredUsername = document.querySelector('input[type="text"]').value;
     const selectedAlignmentValues = [];
@@ -13,7 +14,7 @@ function createPlayer() {
     for (let i = 1; i <= 3; i++) {
         const alignmentRadioButtons = document.getElementsByName(`alignment${i}`);
         const selectedRadioButton = Array.from(alignmentRadioButtons).find((radioButton) => radioButton.checked);
-        
+
         if (selectedRadioButton) {
             selectedAlignmentValues.push(selectedRadioButton.value);
         }
@@ -41,7 +42,7 @@ function createPlayer() {
             }
         });
 
-        // Envoyer les données du joueur au serveur
+        // Envoyer les données du joueur au serveur (remplacez l'URL avec votre propre URL)
         fetch('http://localhost:3000/storeData', {
             method: 'POST',
             headers: {
@@ -56,6 +57,8 @@ function createPlayer() {
         }).then(data => {
             document.getElementById('message').textContent = data;
             document.getElementById('message').style.color = 'green';
+
+            window.location.href = "http://localhost:3000/jeux"; 
         }).catch(error => {
             console.error(error);
             document.getElementById('message').textContent = 'Une erreur s\'est produite lors de l\'envoi des données au serveur';
@@ -72,11 +75,13 @@ function createPlayer() {
     }
 }
 
+// Fonction de validation du nom d'utilisateur
 function isValidUsername(username) {
     const regex = /^[A-Z][a-z]{2,15}$/;
     return regex.test(username);
 }
 
+// Fonction de formatage du nom d'utilisateur
 function formatUsername(username) {
     return username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 }
