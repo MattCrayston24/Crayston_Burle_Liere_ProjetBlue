@@ -1,11 +1,10 @@
 class Player {
     constructor(name) {
         this.name = name;
-        this.baseAlignment = 20; // Initialisez le nombre d'alignement de base à 20.
+        this.baseAlignment = 20; 
     }
 }
 
-// Fonction pour créer un joueur
 function createPlayer() {
     const enteredUsername = document.querySelector('input[type="text"]').value;
     const selectedAlignmentValues = [];
@@ -36,13 +35,12 @@ function createPlayer() {
             if (alignmentValue === 'Bon') {
                 player.baseAlignment += 5;
             } else if (alignmentValue === 'Neutre') {
-                player.baseAlignment += 0; // Aucun changement d'alignement pour Neutre.
+                player.baseAlignment += 0; 
             } else if (alignmentValue === 'Mauvais') {
                 player.baseAlignment -= 5;
             }
         });
 
-        // Envoyer les données du joueur au serveur (remplacez l'URL avec votre propre URL)
         fetch('http://localhost:3000/storeData', {
             method: 'POST',
             headers: {
@@ -75,13 +73,11 @@ function createPlayer() {
     }
 }
 
-// Fonction de validation du nom d'utilisateur
 function isValidUsername(username) {
     const regex = /^[A-Z][a-z]{2,15}$/;
     return regex.test(username);
 }
 
-// Fonction de formatage du nom d'utilisateur
 function formatUsername(username) {
     return username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 }

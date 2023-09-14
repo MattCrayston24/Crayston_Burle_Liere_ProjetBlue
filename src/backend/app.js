@@ -6,7 +6,7 @@ const path = require('path');
 const routes = require('./routes/routes.js');
 const cors = require('cors');
 
-app.use(express.json()); // Pour le parsing de JSON
+app.use(express.json()); 
 app.use(session({
     secret: 'test',
     resave: false,

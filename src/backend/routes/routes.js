@@ -19,9 +19,9 @@ router.get('/jeux', (req, res) => {
 
 router.post('/storeData', (req, res) => {
     const player = req.body;
-    req.session.player = player; // Stocker les données du joueur dans la session
+    req.session.player = player; 
 
-    // Écrire les données du joueur dans un fichier JSON
+    
     fs.writeFile('playerData.json', JSON.stringify(player), (err) => {
         if (err) {
             console.error(err);

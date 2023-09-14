@@ -4,7 +4,6 @@ fetch('http://localhost:3000/static/evenement.json')
     const questions = data.questions;
     const questionsDiv = document.querySelector('.questions');
     let questionIndex = 0;
-
     function afficherQuestion() {
         const questionCourante = questions[questionIndex];
         if (questionCourante) {
@@ -35,8 +34,21 @@ fetch('http://localhost:3000/static/evenement.json')
                 const reponseElement = document.createElement('p');
                 reponseElement.textContent = choix.response;
                 questionsDiv.appendChild(reponseElement);
+
+                const alignementChange = choix.alignementChange || 0;
+                const goldChange = choix.goldChange || 0;
+
+                const alignement = data.baseAlignment; 
+                let gold = 500;    
+    
+                alignementactuel += alignementChange;
+                gold += goldChange;
+    
+                document.querySelector('#alignement').innerHTML = alignementactuel;
+                document.querySelector('#gold').innerHTML = gold;
+    
                 questionIndex++;
-                setTimeout(afficherQuestion, 1000); // Afficher la prochaine question après un délai d'1 seconde (vous pouvez ajuster le délai selon vos besoins)
+                setTimeout(afficherQuestion, 1000);
             }
         }
     }
@@ -46,3 +58,13 @@ fetch('http://localhost:3000/static/evenement.json')
   .catch(error => {
     console.error('Erreur lors du chargement du fichier JSON :', error);
   });
+
+fetch('http://localhost:3000/static/playerData.json').then(
+    res => res.json()
+).then(data => {
+    document.querySelector('#userName').innerHTML = data.name
+    document.querySelector('#alignement').innerHTML = data.baseAlignment
+    
+}).catch(err => {
+    console.log("Oupsss une err avec la lecture de playerData.json")
+})
