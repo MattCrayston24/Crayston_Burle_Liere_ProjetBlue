@@ -1,9 +1,13 @@
+let alignementactuel = 0; // Définir alignementactuel globalement
+let gold = 500; // Définir gold globalement
+let questionIndex = 0; // Définir questionIndex globalement
+
 fetch('http://localhost:3000/static/evenement.json')
   .then(response => response.json())
   .then(data => {
     const questions = data.questions;
     const questionsDiv = document.querySelector('.questions');
-    let questionIndex = 0;
+    
     function afficherQuestion() {
         const questionCourante = questions[questionIndex];
         if (questionCourante) {
@@ -13,12 +17,18 @@ fetch('http://localhost:3000/static/evenement.json')
                 <p>${questionCourante.text}</p>
                 <div class="choices">
                 ${questionCourante.choices.map(choice => `
-                    <button onclick="repondre(${choice.id})">${choice.text}</button>
+                    <button data-choice="${choice.id}">${choice.text}</button>
                 `).join('')}
                 </div>
             `;
             questionsDiv.innerHTML = '';
             questionsDiv.appendChild(questionElement);
+
+            // Ajouter un écouteur d'événement à chaque bouton de choix
+            const choiceButtons = questionElement.querySelectorAll('button');
+            choiceButtons.forEach(button => {
+                button.addEventListener('click', onChoiceClick);
+            });
         } else {
             const finMessage = document.createElement('p');
             finMessage.textContent = 'Toutes les questions ont été répondues. Le jeu est terminé.';
@@ -26,7 +36,8 @@ fetch('http://localhost:3000/static/evenement.json')
         }
     }
 
-    function repondre(choiceId) {
+    function onChoiceClick(event) {
+        const choiceId = parseInt(event.target.getAttribute('data-choice'));
         const questionCourante = questions[questionIndex];
         if (questionCourante) {
             const choix = questionCourante.choices.find(choice => choice.id === choiceId);
@@ -34,12 +45,9 @@ fetch('http://localhost:3000/static/evenement.json')
                 const reponseElement = document.createElement('p');
                 reponseElement.textContent = choix.response;
                 questionsDiv.appendChild(reponseElement);
-
+    
                 const alignementChange = choix.alignementChange || 0;
                 const goldChange = choix.goldChange || 0;
-
-                const alignement = data.baseAlignment; 
-                let gold = 500;    
     
                 alignementactuel += alignementChange;
                 gold += goldChange;
@@ -53,7 +61,7 @@ fetch('http://localhost:3000/static/evenement.json')
         }
     }
 
-    afficherQuestion();
+    afficherQuestion(); // Afficher la première question au chargement de la page
   })
   .catch(error => {
     console.error('Erreur lors du chargement du fichier JSON :', error);
