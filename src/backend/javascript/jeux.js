@@ -107,16 +107,13 @@ function onChoiceClick(event) {
             document.querySelector('#gold').innerHTML = gold;
 
             if (alignementactuel < 0) {
-                // Affiche un message de mort avec une raison
                 const mortDiv = document.createElement('div');
                 mortDiv.className = 'mort';
                 mortDiv.innerHTML = `
-                    <h2>VOUS ÊTES MORT</h2>
+                    <h2>VOUS AVEZ PERDU</h2>
                     <p>Raison : ${choix.deathReason || "Alignement négatif"}</p>
                 `;
                 questionsDiv.appendChild(mortDiv);
-
-                // Arrête le jeu en ne passant pas à la question suivante
                 return;
             } else {
                 questionIndex++;
