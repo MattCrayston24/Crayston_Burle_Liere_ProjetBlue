@@ -2,6 +2,29 @@ let alignementactuel = 0; // Définir alignementactuel globalement
 let gold = 500; // Définir gold globalement
 let questionIndex = 0; // Définir questionIndex globalement
 
+const backgroundImages = [
+    'url(../img/event1.jpg)',
+    'url(../img/event2.jpg)',
+    'url(../img/event3.jpg)',
+    'url(../img/event4.jpg)',
+    'url(../img/event5.jpg)',
+    'url(../img/event6.jpg)',
+    'url(../img/event7.jpg)',
+    'url(../img/event8.jpg)',
+    'url(../img/event9.jpg)',
+    'url(../img/event10.jpg)',
+    'url(../img/event11.jpg)',
+];
+
+// ...
+
+function changerImageFondQuestion(questionIndex) {
+    if (questionIndex >= 0 && questionIndex < backgroundImages.length) {
+        const mainElement = document.getElementById('bak');
+        mainElement.style.backgroundImage = backgroundImages[questionIndex];
+    }
+}
+
 fetch('http://localhost:3000/static/evenement.json')
   .then(response => response.json())
   .then(data => {
@@ -23,8 +46,7 @@ fetch('http://localhost:3000/static/evenement.json')
             `;
             questionsDiv.innerHTML = '';
             questionsDiv.appendChild(questionElement);
-
-            // Ajouter un écouteur d'événement à chaque bouton de choix
+           
             const choiceButtons = questionElement.querySelectorAll('button');
             choiceButtons.forEach(button => {
                 button.addEventListener('click', onChoiceClick);
@@ -36,32 +58,33 @@ fetch('http://localhost:3000/static/evenement.json')
         }
     }
 
-    function onChoiceClick(event) {
-        const choiceId = parseInt(event.target.getAttribute('data-choice'));
-        const questionCourante = questions[questionIndex];
-        if (questionCourante) {
-            const choix = questionCourante.choices.find(choice => choice.id === choiceId);
-            if (choix) {
-                const reponseElement = document.createElement('p');
-                reponseElement.textContent = choix.response;
-                questionsDiv.appendChild(reponseElement);
-    
-                const alignementChange = choix.alignementChange || 0;
-                const goldChange = choix.goldChange || 0;
-    
-                alignementactuel += alignementChange;
-                gold += goldChange;
-    
-                document.querySelector('#alignement').innerHTML = alignementactuel;
-                document.querySelector('#gold').innerHTML = gold;
-    
-                questionIndex++;
-                setTimeout(afficherQuestion, 1000);
-            }
-        }
-    }
+function onChoiceClick(event) {
+    const choiceId = parseInt(event.target.getAttribute('data-choice'));
+    const questionCourante = questions[questionIndex];
+    if (questionCourante) {
+        const choix = questionCourante.choices.find(choice => choice.id === choiceId);
+        if (choix) {
+            const reponseElement = document.createElement('p');
+            reponseElement.textContent = choix.response;
+            questionsDiv.appendChild(reponseElement);
 
-    afficherQuestion(); // Afficher la première question au chargement de la page
+            const alignementChange = choix.alignementChange || 0;
+            const goldChange = choix.goldChange || 0;
+
+            alignementactuel += alignementChange;
+            gold += goldChange;
+
+            document.querySelector('#alignement').innerHTML = alignementactuel;
+            document.querySelector('#gold').innerHTML = gold;
+
+            questionIndex++;
+            setTimeout(afficherQuestion, 2000);
+        }
+        changerImageFondQuestion(questionIndex);
+    }
+}
+
+    afficherQuestion();
   })
   .catch(error => {
     console.error('Erreur lors du chargement du fichier JSON :', error);

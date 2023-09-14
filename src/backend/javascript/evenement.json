@@ -122,26 +122,6 @@
     },
     {
         "id": 7,
-        "text": "Il fait nuit, vous devez vous rendre au plus vite à la contée la plus proche.",
-        "choices": [
-        {
-            "id": 1,
-            "text": "Camper sur place dans cette forêt lugubre.",
-            "alignementChange": -10,
-            "goldChange": 0,
-            "response": "Vous avez campé et cela a diminué votre alignement."
-        },
-        {
-            "id": 2,
-            "text": "Continuer à marcher de nuit, avec les animaux inconnus de cette forêt.",
-            "alignementChange": 10,
-            "goldChange": 0,
-            "response": "Vous avez continué de marcher la nuit, ce qui a renforcé votre alignement."
-        }
-        ]
-    },
-    {
-        "id": 8,
         "text": "Vous rencontrez un homme qui dit être roi. Il vous demande de le suivre.",
         "choices": [
         {
@@ -161,7 +141,7 @@
         ]
     },
     {
-        "id": 9,
+        "id": 8,
         "text": "Objet. Ce pommier est étrange, les pommes sont en or.",
         "choices": [
         {
@@ -181,7 +161,7 @@
         ]
     },
     {
-        "id": 10,
+        "id": 9,
         "text": "La nuit tombe, vous apercevez une auberge, louez une nuit dans cette demeure ?",
         "choices": [
         {
@@ -201,7 +181,7 @@
         ]
     },
     {
-        "id": 11,
+        "id": 10,
         "text": "Objet. Vous trouvez une potion dans un coffre.",
         "choices": [
         {
@@ -221,7 +201,7 @@
         ]
     },
     {
-        "id": 12,
+        "id": 11,
         "text": "Vous croisez un ami de votre village.",
         "choices": [
         {
