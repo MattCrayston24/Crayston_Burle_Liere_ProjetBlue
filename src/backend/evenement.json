@@ -1,0 +1,243 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "text": "Votre village est en feu, il faut partir !",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Partir le plus vite possible en courant.",
+            "alignmentChange": -10,
+            "goldChange": 0,
+            "response": "Vous avez réussi à échapper au feu, mais votre alignement a diminué."
+          },
+          {
+            "id": 2,
+            "text": "Essayer de sauver son cheval et s’enfuir avec.",
+            "alignmentChange": 10,
+            "goldChange": 0,
+            "response": "Vous avez sauvé votre cheval, ce qui a renforcé votre alignement."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "text": "Il fait nuit, vous devez vous rendre au plus vite à la contée la plus proche.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Camper sur place dans cette forêt lugubre.",
+            "alignmentChange": 5,
+            "goldChange": 0,
+            "response": "Vous avez campé et cela a renforcé votre alignement."
+          },
+          {
+            "id": 2,
+            "text": "Continuer à marcher de nuit, avec les animaux inconnus de cette forêt.",
+            "alignmentChange": -5,
+            "goldChange": 0,
+            "response": "Vous avez continué de marcher la nuit, ce qui a diminué votre alignement."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "Un villageois vient vous voir, il vous demande 20 d’or.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Lui donnez 20 or par gentillesse pour l’aider.",
+            "alignmentChange": 20,
+            "goldChange": -20,
+            "response": "Vous avez donné 20 or au villageois, ce qui a renforcé votre alignement."
+          },
+          {
+            "id": 2,
+            "text": "Gardez votre or pour plus tard et laissez ce villageois dans la misère.",
+            "alignmentChange": -20,
+            "goldChange": 0,
+            "response": "Vous avez gardé votre or, ce qui a diminué votre alignement."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "text": "Dans ce buisson quelque chose brille de mille éclats.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Vous penchez et prendre le risque de s’exposer mais de récupérer cet objet.",
+            "alignmentChange": 0,
+            "goldChange": -50,
+            "response": "Un gobelin vous a attaqué et vous a volé 50 or."
+          },
+          {
+            "id": 2,
+            "text": "Continuez votre route.",
+            "alignmentChange": 0,
+            "goldChange": 0,
+            "response": "Vous avez continué votre route."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "text": "Vous apercevez un marchand de fruit au loin.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Vous achetez à manger car vous en avez besoin.",
+            "alignmentChange": 0,
+            "goldChange": -20,
+            "response": "Vous avez acheté à manger, ce qui vous a coûté 20 or."
+          },
+          {
+            "id": 2,
+            "text": "Vous passez votre chemin, mais avez une faim de loup.",
+            "alignmentChange": 0,
+            "goldChange": 0,
+            "response": "Vous avez continué votre route."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "text": "Il pleut d’un coup des trombes.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "S’abriter dans une grotte.",
+            "alignmentChange": 5,
+            "goldChange": 0,
+            "response": "Vous vous êtes abrité dans une grotte, ce qui a renforcé votre alignement."
+          },
+          {
+            "id": 2,
+            "text": "Continuez sous la pluie torrentielle.",
+            "alignmentChange": -5,
+            "goldChange": 0,
+            "response": "Vous avez continué votre route sous la pluie, ce qui a diminué votre alignement."
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "text": "Il fait nuit, vous devez vous rendre au plus vite à la contée la plus proche.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Camper sur place dans cette forêt lugubre.",
+            "alignmentChange": -10,
+            "goldChange": 0,
+            "response": "Vous avez campé et cela a diminué votre alignement."
+          },
+          {
+            "id": 2,
+            "text": "Continuer à marcher de nuit, avec les animaux inconnus de cette forêt.",
+            "alignmentChange": 10,
+            "goldChange": 0,
+            "response": "Vous avez continué de marcher la nuit, ce qui a renforcé votre alignement."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "text": "Vous rencontrez un homme qui dit être roi. Il vous demande de le suivre.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Lui faire confiance et le suivre.",
+            "alignmentChange": 0,
+            "goldChange": 100,
+            "response": "Vous avez suivi cet homme, et il vous a donné 100 or."
+          },
+          {
+            "id": 2,
+            "text": "Évitez cet homme et partir.",
+            "alignmentChange": 0,
+            "goldChange": 0,
+            "response": "Vous avez évité cet homme."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "text": "Objet. Ce pommier est étrange, les pommes sont en or.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Récupérer les 3 pommes en or.",
+            "alignmentChange": 0,
+            "goldChange": 300,
+            "response": "Vous avez récupéré les 3 pommes en or, ce qui vous a donné 300 or."
+          },
+          {
+            "id": 2,
+            "text": "Ne pas les récupérer ces pommes.",
+            "alignmentChange": 0,
+            "goldChange": 0,
+            "response": "Vous avez laissé les pommes en or."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "text": "La nuit tombe, vous apercevez une auberge, louez une nuit dans cette demeure ?",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Louez une nuit pour repartir plus fort le lendemain.",
+            "alignmentChange": 20,
+            "goldChange": -100,
+            "response": "Vous avez loué une nuit, ce qui vous a coûté 100 or. Mais vous avez gagné 20 d’alignement."
+          },
+          {
+            "id": 2,
+            "text": "Gardez votre or, et continuer votre route.",
+            "alignmentChange": -20,
+            "goldChange": 0,
+            "response": "Vous avez continué votre route."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "text": "Objet. Vous trouvez une potion dans un coffre.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Boire cette potion mystérieuse.",
+            "alignmentChange": -20,
+            "goldChange": 0,
+            "response": "Vous avez bu cette potion, ce qui a diminué votre alignement."
+          },
+          {
+            "id": 2,
+            "text": "La garder pour plus tard, cela peut toujours servir.",
+            "alignmentChange": 0,
+            "goldChange": 0,
+            "response": "Vous avez gardé cette potion."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "text": "Vous croisez un ami de votre village.",
+        "choices": [
+          {
+            "id": 1,
+            "text": "Le saluer et lui parler.",
+            "alignmentChange": 20,
+            "goldChange": 0,
+            "response": "Vous avez salué votre ami, ce qui a renforcé votre alignement."
+            },
+            {
+            "id": 2,
+            "text": "L’ignorer et continuer votre route.",
+            "alignmentChange": -20,
+            "goldChange": 0,
+            "response": "Vous avez ignoré votre ami, ce qui a diminué votre alignement."
+            }
+        ]
+    }
+]}

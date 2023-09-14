@@ -25,7 +25,6 @@ nav {
 }
 
 .stat {
-    margin-top: 250px;
     width: 40%;
     display: flex;
 }
@@ -38,6 +37,23 @@ nav {
 
 .stat img { 
     width: 100%;
+}
+
+.stat1 {
+    margin-top: 250px;
+    width: 40%;
+    display: flex;
+}
+
+.stat1 p {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+.stat1 img {
+    width: 100%;
+    filter: invert(100%);
 }
 
 .stat2 {

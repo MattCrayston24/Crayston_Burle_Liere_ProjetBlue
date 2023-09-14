@@ -1,42 +1,42 @@
-const questions = [
-    {
-        question: "Votre village est en feu, il faut partir !",
-        choices: ["Partir le plus vite possible en courant", "Essayer de sauver son cheval et partir avec celui ci."],
-        correctAnswer: "Essayer de sauver son cheval et partir avec celui ci."
-    },
-    {
-        question: "Il fait nuit, vous devez vous rendre au plus vite à la contée la plus proche.",
-        choices: ["Camper sur place dans cette forêt lugubre.", "Continuer à marcher de nuit, avec les animaux inconnus de cette forêt."],
-        correctAnswer: "Camper sur place dans cette forêt lugubre."
-    },
- 
-];
+const questionsDiv = document.querySelector('.questions');
+let questionIndex = 0;
 
-let currentQuestion = 0;
-
-function checkAnswer(selectedAnswer) {
-    if (selectedAnswer === questions[currentQuestion].correctAnswer) {
-        alert("Bonne réponse !");
-    } else {
-        alert("Mauvaise réponse. La réponse correcte est : " + questions[currentQuestion].correctAnswer);
-    }
-
-
-    currentQuestion++;
-
-    if (currentQuestion < questions.length) {
-        displayQuestion(currentQuestion);
-    } else {
-        alert("Félicitations, vous avez terminé le jeu !");
-       }
+function afficherQuestion() {
+  fetch("../evenement.json")
+    .then(response => response.json())
+    .then(data => {
+      const questions = data.questions;
+      const questionCourante = questions[questionIndex];
+      if (questionCourante) {
+        const questionElement = document.createElement('div');
+        questionElement.className = 'question';
+        questionElement.innerHTML = `
+          <p>${questionCourante.text}</p>
+          <div class="choices">
+            ${questionCourante.choices.map(choice => `
+              <button onclick="repondre(${choice.id})">${choice.text}</button>
+            `).join('')}
+          </div>
+        `;
+        questionsDiv.innerHTML = ''; // Effacer le contenu précédent
+        questionsDiv.appendChild(questionElement);
+      } else {
+        // Toutes les questions ont été répondues
+        const finMessage = document.createElement('p');
+        finMessage.textContent = 'Toutes les questions ont été répondues. Le jeu est terminé.';
+        questionsDiv.appendChild(finMessage);
+      }
+    })
+    .catch(error => console.error(error));
 }
 
-function displayQuestion(questionIndex) {
-    const questionContainer = document.querySelector('.questions');
-    questionContainer.innerHTML = `<h2>Faîtes votre choix paysan ! Mission :${questionIndex + 1}</h2>
-        <p>${questions[questionIndex].question}</p>
-        <button onclick="checkAnswer('${questions[questionIndex].choices[0]}')">${questions[questionIndex].choices[0]}</button>
-        <button onclick="checkAnswer('${questions[questionIndex].choices[1]}')">${questions[questionIndex].choices[1]}</button>`;
+function repondre(choiceId) {
+  // Le traitement de la réponse de l'utilisateur peut être ajouté ici, si nécessaire.
+  // Pour l'instant, nous n'avons pas de logique de traitement des réponses dans cette version simplifiée.
+
+  questionIndex++;
+  afficherQuestion();
 }
 
-displayQuestion(currentQuestion);
+// Démarrer le jeu en affichant la première question
+afficherQuestion();
