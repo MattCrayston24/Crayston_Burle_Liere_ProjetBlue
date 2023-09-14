@@ -90,9 +90,21 @@ nav {
 main {
     background-image: url("../img/event1.jpg");
     background-size: cover;
+    animation: zoom 10s ease infinite alternate;
+    overflow: hidden;
+}
+
+@keyframes zoom {
+    0% {
+        background-size: 120%;
+    }
+    100% {
+        background-size: 140%;
+    }
 }
 
 .questions {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
@@ -104,7 +116,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 300px;
 }
 
 .questions p {
@@ -112,11 +124,12 @@ main {
     margin-bottom: 10px;
 }
 
+
 .choices button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #007BFF;
+    background-color: rgba(187, 147, 48, 0.9);
     color: white;
     border: none;
     border-radius: 5px;
@@ -124,5 +137,5 @@ main {
 }
 
 .choices button:hover {
-    background-color: #0056b3;
+    background-color: rgba(229, 183, 66, 0.9);
 }
