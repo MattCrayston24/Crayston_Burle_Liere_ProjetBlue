@@ -87,9 +87,25 @@ function afficherFelicitation() {
 
 // ...
 
+// ...
+
+let canClick = true; // Variable de contrôle pour autoriser ou bloquer les clics
+
+let alignementactuel = 0;
+let gold = 500;
+let questionIndex = 0;
+let gameLost = false; // Variable pour suivre si le joueur a perdu
+
+// ...
+
 function onChoiceClick(event) {
+    if (gameLost) {
+        return; // Ne pas autoriser les clics si le joueur a perdu
+    }
+
     const choiceId = parseInt(event.target.getAttribute('data-choice'));
     const questionCourante = questions[questionIndex];
+    
     if (questionCourante) {
         const choix = questionCourante.choices.find(choice => choice.id === choiceId);
         if (choix) {
@@ -107,6 +123,7 @@ function onChoiceClick(event) {
             document.querySelector('#gold').innerHTML = gold;
 
             if (alignementactuel < 0) {
+                gameLost = true; // Le joueur a perdu
                 const mortDiv = document.createElement('div');
                 mortDiv.className = 'mort';
                 mortDiv.innerHTML = `
@@ -114,6 +131,11 @@ function onChoiceClick(event) {
                     <p>Raison : ${choix.deathReason || "Alignement négatif"}</p>
                 `;
                 questionsDiv.appendChild(mortDiv);
+
+                // Afficher le bouton "Recommencer"
+                const recommencerButton = document.getElementById('recommencer');
+                recommencerButton.style.display = 'block';
+                recommencerButton.addEventListener('click', recommencerJeu);
                 return;
             } else {
                 questionIndex++;
@@ -127,6 +149,24 @@ function onChoiceClick(event) {
         }
     }
 }
+
+function recommencerJeu() {
+    alignementactuel = 0;
+    gold = 500;
+    questionIndex = 0;
+    gameLost = false;
+
+    const questionsDiv = document.querySelector('.questions');
+    questionsDiv.innerHTML = '';
+
+    const recommencerButton = document.getElementById('recommencer');
+    recommencerButton.style.display = 'none';
+
+    // Relancer le jeu
+    afficherQuestion();
+    changerImageFondQuestion(questionIndex);
+}
+
 
     afficherQuestion();
   })
