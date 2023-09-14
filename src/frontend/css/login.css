@@ -4,19 +4,29 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+}
+
 main {
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow: hidden;
 }
 
 .img-container {
     position: relative;
-    background-color: #000;
+    width: 100%;
 }
 
 .img-container img {
     width: 100%;
-    height: 99.6vh;
+    height: 100vh;
     filter: blur(3px);
+    object-fit: cover;
 }
 
 .form-container {
@@ -24,46 +34,63 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgba(203, 168, 77, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 form {
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+    max-width: 300px; /* Ajuste la largeur du formulaire */
+    margin: 0 auto; /* Centre le formulaire horizontalement */
 }
 
-/* Style pour les étiquettes des questions */
 form label {
     font-weight: bold;
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+    font-size: 14px;
 }
 
-/* Style pour les boutons radio et les labels associés */
+form input[type="text"],
 form input[type="radio"] {
-    margin-right: 2px;
+    width: auto; /* Réinitialise la largeur pour aligner horizontalement */
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
 }
 
-/* Style pour le bouton de création du joueur */
+/* Pour aligner horizontalement les choix de réponse */
+form label,
+form input[type="radio"] {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
 button {
-    background-color: #007BFF;
-    color: #fff;
+    background-color: #dcdcdc;
+    color: #000;
     border: none;
-    padding: 3px 8px;
+    padding: 5px 15px;
     border-radius: 3px;
     cursor: pointer;
-    margin-top: 3px;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #8d8d8d;
 }
 
-/* Style pour les messages et les informations */
 p {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin: 2px 0;
+    font-size: 12px;
 }
-
