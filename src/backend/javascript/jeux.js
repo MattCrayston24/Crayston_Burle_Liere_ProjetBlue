@@ -20,8 +20,10 @@ const backgroundImages = [
 
 function changerImageFondQuestion(questionIndex) {
     if (questionIndex >= 0 && questionIndex < backgroundImages.length) {
+        setTimeout(() => {
         const mainElement = document.getElementById('bak');
         mainElement.style.backgroundImage = backgroundImages[questionIndex];
+        }, 3000);
     }
 }
 
@@ -58,6 +60,33 @@ fetch('http://localhost:3000/static/evenement.json')
         }
     }
 
+// ...
+
+// ...
+
+function afficherFelicitation() {
+    const felicitationDiv = document.createElement('div');
+    felicitationDiv.className = 'felicitation';
+    const alignmentLevel = alignementactuel < 0
+        ? 'Mort'
+        : alignementactuel >= 0 && alignementactuel < 30
+        ? 'Mauvais'
+        : alignementactuel >= 30 && alignementactuel < 60
+        ? 'Bon'
+        : 'Dieu';
+
+    felicitationDiv.innerHTML = `
+        <h2>Félicitations!</h2>
+        <p>Nom: ${document.querySelector('#userName').textContent}</p>
+        <p>Pièces d'or: ${gold}</p>
+        <p>Niveau d'alignement: ${alignmentLevel}</p>
+    `;
+    questionsDiv.innerHTML = '';
+    questionsDiv.appendChild(felicitationDiv);
+}
+
+// ...
+
 function onChoiceClick(event) {
     const choiceId = parseInt(event.target.getAttribute('data-choice'));
     const questionCourante = questions[questionIndex];
@@ -77,10 +106,28 @@ function onChoiceClick(event) {
             document.querySelector('#alignement').innerHTML = alignementactuel;
             document.querySelector('#gold').innerHTML = gold;
 
-            questionIndex++;
-            setTimeout(afficherQuestion, 2000);
+            if (alignementactuel < 0) {
+                // Affiche un message de mort avec une raison
+                const mortDiv = document.createElement('div');
+                mortDiv.className = 'mort';
+                mortDiv.innerHTML = `
+                    <h2>VOUS ÊTES MORT</h2>
+                    <p>Raison : ${choix.deathReason || "Alignement négatif"}</p>
+                `;
+                questionsDiv.appendChild(mortDiv);
+
+                // Arrête le jeu en ne passant pas à la question suivante
+                return;
+            } else {
+                questionIndex++;
+                if (questionIndex < questions.length) {
+                    setTimeout(afficherQuestion, 3000); 
+                } else {
+                    setTimeout(afficherFelicitation, 5000);
+                }
+                changerImageFondQuestion(questionIndex);
+            }
         }
-        changerImageFondQuestion(questionIndex);
     }
 }
 
