@@ -16,12 +16,10 @@ class Item {
   }
 }
 
-// Fonction pour formater le nom de l'utilisateur selon les critères spécifiés
 function formatUsername(username) {
   return username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 }
 
-// Fonction pour créer un joueur en utilisant un formulaire
 function createPlayer() {
   const username = document.getElementById('username').value;
   const selectedAlignment = document.querySelector('input[name="alignment"]:checked');

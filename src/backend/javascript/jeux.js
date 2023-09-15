@@ -1,6 +1,6 @@
-let alignementactuel = 0; // Définir alignementactuel globalement
-let gold = 500; // Définir gold globalement
-let questionIndex = 0; // Définir questionIndex globalement
+let alignementactuel = 0; 
+let gold = 500; 
+let questionIndex = 0;
 
 const backgroundImages = [
     'url(../img/event1.jpg)',
@@ -16,7 +16,6 @@ const backgroundImages = [
     'url(../img/event11.jpg)',
 ];
 
-// ...
 
 function changerImageFondQuestion(questionIndex) {
     if (questionIndex >= 0 && questionIndex < backgroundImages.length) {
@@ -60,9 +59,6 @@ fetch('http://localhost:3000/static/evenement.json')
         }
     }
 
-// ...
-
-// ...
 
 function afficherFelicitation() {
     const felicitationDiv = document.createElement('div');
@@ -85,22 +81,18 @@ function afficherFelicitation() {
     questionsDiv.appendChild(felicitationDiv);
 }
 
-// ...
 
-// ...
-
-let canClick = true; // Variable de contrôle pour autoriser ou bloquer les clics
+let canClick = true; 
 
 let alignementactuel = 0;
 let gold = 500;
 let questionIndex = 0;
-let gameLost = false; // Variable pour suivre si le joueur a perdu
+let gameLost = false; 
 
-// ...
 
 function onChoiceClick(event) {
     if (gameLost) {
-        return; // Ne pas autoriser les clics si le joueur a perdu
+        return; 
     }
 
     const choiceId = parseInt(event.target.getAttribute('data-choice'));
@@ -123,7 +115,7 @@ function onChoiceClick(event) {
             document.querySelector('#gold').innerHTML = gold;
 
             if (alignementactuel < 0) {
-                gameLost = true; // Le joueur a perdu
+                gameLost = true; 
                 const mortDiv = document.createElement('div');
                 mortDiv.className = 'mort';
                 mortDiv.innerHTML = `
@@ -132,7 +124,7 @@ function onChoiceClick(event) {
                 `;
                 questionsDiv.appendChild(mortDiv);
 
-                // Afficher le bouton "Recommencer"
+              
                 const recommencerButton = document.getElementById('recommencer');
                 recommencerButton.style.display = 'block';
                 recommencerButton.addEventListener('click', recommencerJeu);
@@ -162,7 +154,6 @@ function recommencerJeu() {
     const recommencerButton = document.getElementById('recommencer');
     recommencerButton.style.display = 'none';
 
-    // Relancer le jeu
     afficherQuestion();
     changerImageFondQuestion(questionIndex);
 }
