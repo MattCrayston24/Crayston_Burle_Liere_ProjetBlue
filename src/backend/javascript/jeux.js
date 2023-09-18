@@ -1,7 +1,3 @@
-let alignementactuel = 0; 
-let gold = 500; 
-let questionIndex = 0;
-
 const backgroundImages = [
     'url(../img/event1.jpg)',
     'url(../img/event2.jpg)',
@@ -32,32 +28,32 @@ fetch('http://localhost:3000/static/evenement.json')
     const questions = data.questions;
     const questionsDiv = document.querySelector('.questions');
     
-    function afficherQuestion() {
-        const questionCourante = questions[questionIndex];
-        if (questionCourante) {
-            const questionElement = document.createElement('div');
-            questionElement.className = 'question';
-            questionElement.innerHTML = `
-                <p>${questionCourante.text}</p>
-                <div class="choices">
-                ${questionCourante.choices.map(choice => `
-                    <button data-choice="${choice.id}">${choice.text}</button>
-                `).join('')}
-                </div>
-            `;
-            questionsDiv.innerHTML = '';
-            questionsDiv.appendChild(questionElement);
-           
-            const choiceButtons = questionElement.querySelectorAll('button');
-            choiceButtons.forEach(button => {
-                button.addEventListener('click', onChoiceClick);
-            });
-        } else {
-            const finMessage = document.createElement('p');
-            finMessage.textContent = 'Toutes les questions ont été répondues. Le jeu est terminé.';
-            questionsDiv.appendChild(finMessage);
-        }
+function afficherQuestion() {
+    const questionCourante = questions[questionIndex];
+    if (questionCourante) {
+        const questionElement = document.createElement('div');
+        questionElement.className = 'question';
+        questionElement.innerHTML = `
+            <p>${questionCourante.text}</p>
+            <div class="choices">
+            ${questionCourante.choices.map(choice => `
+                <button data-choice="${choice.id}">${choice.text}</button>
+            `).join('')}
+            </div>
+        `;
+        questionsDiv.innerHTML = '';
+        questionsDiv.appendChild(questionElement);
+        
+        const choiceButtons = questionElement.querySelectorAll('button');
+        choiceButtons.forEach(button => {
+            button.addEventListener('click', onChoiceClick);
+        });
+    } else {
+        const finMessage = document.createElement('p');
+        finMessage.textContent = 'Toutes les questions ont été répondues. Le jeu est terminé.';
+        questionsDiv.appendChild(finMessage);
     }
+}
 
 
 function afficherFelicitation() {
@@ -84,7 +80,7 @@ function afficherFelicitation() {
 
 let canClick = true; 
 
-let alignementactuel = 0;
+let alignementactuel = 35;
 let gold = 500;
 let questionIndex = 0;
 let gameLost = false; 

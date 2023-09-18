@@ -1,21 +1,21 @@
 class Player {
     constructor(name) {
         this.name = name;
-        this.baseAlignment = 20; 
+        this.baseAlignement = 20; 
     }
 }
 
 function createPlayer() {
     const enteredUsername = document.querySelector('input[type="text"]').value;
-    const selectedAlignmentValues = [];
+    const selectedAlignementValues = [];
     let selectedObject = null;
 
     for (let i = 1; i <= 3; i++) {
-        const alignmentRadioButtons = document.getElementsByName(`alignment${i}`);
-        const selectedRadioButton = Array.from(alignmentRadioButtons).find((radioButton) => radioButton.checked);
+        const AlignementRadioButtons = document.getElementsByName(`Alignement${i}`);
+        const selectedRadioButton = Array.from(AlignementRadioButtons).find((radioButton) => radioButton.checked);
 
         if (selectedRadioButton) {
-            selectedAlignmentValues.push(selectedRadioButton.value);
+            selectedAlignementValues.push(selectedRadioButton.value);
         }
     }
 
@@ -27,17 +27,17 @@ function createPlayer() {
         }
     });
 
-    if (isValidUsername(enteredUsername) && selectedAlignmentValues.length === 3 && selectedObject) {
+    if (isValidUsername(enteredUsername) && selectedAlignementValues.length === 3 && selectedObject) {
         const formattedUsername = formatUsername(enteredUsername);
         const player = new Player(formattedUsername);
 
-        selectedAlignmentValues.forEach((alignmentValue) => {
-            if (alignmentValue === 'Bon') {
-                player.baseAlignment += 5;
-            } else if (alignmentValue === 'Neutre') {
-                player.baseAlignment += 0; 
-            } else if (alignmentValue === 'Mauvais') {
-                player.baseAlignment -= 5;
+        selectedAlignementValues.forEach((AlignementValue) => {
+            if (AlignementValue === 'Bon') {
+                player.baseAlignement += 5;
+            } else if (AlignementValue === 'Neutre') {
+                player.baseAlignement += 0; 
+            } else if (AlignementValue === 'Mauvais') {
+                player.baseAlignement -= 5;
             }
         });
 
@@ -63,12 +63,12 @@ function createPlayer() {
             document.getElementById('message').style.color = 'red';
         });
 
-        document.getElementById('alignment-value').textContent = `Alignement : ${player.baseAlignment}`;
+        document.getElementById('Alignement-value').textContent = `Alignement : ${player.baseAlignement}`;
         document.getElementById('selected-object').textContent = `Objet choisi : ${selectedObject}`;
     } else {
         document.getElementById('message').textContent = 'Le nom d\'utilisateur n\'est pas valide ou toutes les questions n\'ont pas été répondues ou un objet n\'a pas été choisi.';
         document.getElementById('message').style.color = 'red';
-        document.getElementById('alignment-value').textContent = '';
+        document.getElementById('Alignement-value').textContent = '';
         document.getElementById('selected-object').textContent = '';
     }
 }
